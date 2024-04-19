@@ -39,6 +39,15 @@ public class DialogContent extends ParentPage {
     @FindBy(xpath = "//button[contains(@class,'action login')]")
     public WebElement signInButton;
 
+    @FindBy(xpath = "//div[@id='email-error']")
+    public WebElement requiredEmailText;
+
+    @FindBy(xpath = "//div[@id='pass-error']")
+    public WebElement requiredPasswordText;
+
+    @FindBy(xpath = "//div[contains(@data-bind,'message.text')]")
+    public WebElement incorrectText;
+
 
     public WebElement getWebElement(String strElement) {
 

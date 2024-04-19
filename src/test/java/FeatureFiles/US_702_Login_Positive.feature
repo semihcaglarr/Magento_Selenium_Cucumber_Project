@@ -1,4 +1,4 @@
-Feature: Login Functionality
+Feature: Login Positive Functionality
 
   Background:
     Given Navigate to Magento WebSite
