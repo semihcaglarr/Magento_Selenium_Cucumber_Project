@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>Magento_Test_Project</artifactId>
+    <artifactId>Cucumber7</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -21,7 +21,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.19.1</version>
+            <version>4.18.1</version>
         </dependency>
 
         <!-- Cucumber  -->
@@ -29,7 +29,8 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.16.1</version>
+            <version>7.15.0</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- TestNG    -->
@@ -37,7 +38,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.10.1</version>
+            <version>7.9.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -46,10 +47,11 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
-            <version>7.16.1</version>
+            <version>7.15.0</version>
+            <scope>test</scope>
         </dependency>
 
-        <!--   SLF4J yokedici   -->
+        <!--   SLF4J Destroyer   -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
@@ -71,7 +73,7 @@
             <version>1.10.1</version>
         </dependency>
 
-        <!-- ApachePOI için eklendi -->
+        <!-- Added for ApachePOI -->
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml <version>5.2.5</version> -->
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -79,12 +81,13 @@
             <version>4.1.0</version>
         </dependency>
 
-        <!-- JDBC - MySql için eklendi -->
+        <!-- JDBC - Added for MySql -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.18</version>
         </dependency>
+
 
     </dependencies>
 
