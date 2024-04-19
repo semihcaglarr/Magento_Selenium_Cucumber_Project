@@ -2,8 +2,7 @@ package Pages;
 
 import Utilities.GWD;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.*;
 
 public class DialogContent extends ParentPage {
     public DialogContent() {
@@ -17,10 +16,10 @@ public class DialogContent extends ParentPage {
     public WebElement lastName;
 
     @FindBy(xpath = "//input[@id='email_address']")
-    public WebElement eMail;
+    public WebElement RegisterEMail;
 
     @FindBy(xpath = "//input[@id='password']")
-    public WebElement password;
+    public WebElement RegisterPassword;
 
     @FindBy(xpath = "//input[@id='password-confirmation']")
     public WebElement confirmPassword;
@@ -30,6 +29,15 @@ public class DialogContent extends ParentPage {
 
     @FindBy(xpath = "//h1[@class='page-title']/span")
     public WebElement myAccountText;
+
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement loginEmail;
+
+    @FindBy(xpath = "//input[@name='login[password]']")
+    public WebElement loginPassword;
+
+    @FindBy(xpath = "//button[contains(@class,'action login')]")
+    public WebElement signInButton;
 
 
     public WebElement getWebElement(String strElement) {
@@ -41,17 +49,26 @@ public class DialogContent extends ParentPage {
             case "lastName":
                 return this.lastName;
 
-            case "eMail":
-                return this.eMail;
+            case "RegisterEMail":
+                return this.RegisterEMail;
 
-            case "password":
-                return this.password;
+            case "RegisterPassword":
+                return this.RegisterPassword;
 
             case "confirmPassword":
                 return this.confirmPassword;
 
             case "createAccountButton":
                 return this.createAccountButton;
+
+            case "loginEmail":
+                return this.loginEmail;
+
+            case "loginPassword":
+                return this.loginPassword;
+
+            case "signInButton":
+                return this.signInButton;
 
         }
 

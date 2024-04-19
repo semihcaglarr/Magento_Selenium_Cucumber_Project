@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class US_701_Steps {
+public class US_701_Register {
     DialogContent dc = new DialogContent();
     TopNav tn = new TopNav();
 
@@ -47,10 +47,8 @@ public class US_701_Steps {
         }
     }
 
-    @Then("User Should Register Successfully")
-    public void userShouldRegisterSuccessfully() {
+    @Then("My Account Text Should be Displayed")
+    public void myAccountTextShouldBeDisplayed() {
         dc.verifyContainsText(dc.myAccountText, "My Account");
-
     }
-
 }
