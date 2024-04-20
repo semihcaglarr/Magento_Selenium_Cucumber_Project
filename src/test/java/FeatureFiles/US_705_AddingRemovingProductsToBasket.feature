@@ -1,11 +1,9 @@
-Feature: Login Positive Functionality
+Feature: Add Product to Basket Functionality
 
   Background:
     Given Navigate to Magento WebSite
 
-  Scenario:Verifying the Login Process for Registered Users
-
-    And Click on the Element in TopNav
+    When Click on the Element in TopNav
       | signIn |
 
     And User Sending the Keys in Dialog
@@ -15,10 +13,12 @@ Feature: Login Positive Functionality
     And Click on the Element in Dialog
       | signInButton |
 
-    And Welcome message should be displayed
+    Then Welcome message should be displayed
 
 
+    Scenario: Registered User Randomly Adds or Removes Products to The Basket
 
+      Given Add a Randomly Selected Product to The Basket
 
 
 

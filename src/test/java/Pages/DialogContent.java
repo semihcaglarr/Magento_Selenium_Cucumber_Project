@@ -48,6 +48,39 @@ public class DialogContent extends ParentPage {
     @FindBy(xpath = "//div[contains(@data-bind,'message.text')]")
     public WebElement incorrectText;
 
+    @FindBy(xpath = "//input[@id='telephone']")
+    public WebElement phoneNumber;
+
+    @FindBy(xpath = "//input[@id='street_1']")
+    public WebElement streetAddress1;
+
+    @FindBy(xpath = "//input[@id='street_2']")
+    public WebElement streetAddress2;
+
+    @FindBy(xpath = "//input[@id='city']")
+    public WebElement city;
+
+    @FindBy(xpath = "//select[@id='region_id']")
+    public WebElement stateSelect;
+
+    @FindBy(xpath = "//option[@value='42']")
+    public WebElement value42NewMexico;
+
+    @FindBy(xpath = "//input[@id='zip']")
+    public WebElement zipCode;
+
+    @FindBy(xpath = "//select[@id='country']")
+    public WebElement countrySelect;
+
+    @FindBy(xpath = "//button[@class='action save primary']")
+    public WebElement saveAddressButton;
+
+    @FindBy(xpath = "//div[contains(@data-bind,'message.text')]")
+    public WebElement saveAddressText;
+
+    @FindBy(xpath = "//button[@class='action primary add']")
+    public WebElement addNewAddressButton;
+
 
     public WebElement getWebElement(String strElement) {
 
@@ -78,6 +111,37 @@ public class DialogContent extends ParentPage {
 
             case "signInButton":
                 return this.signInButton;
+
+            case "phoneNumber":
+                return this.phoneNumber;
+
+            case "streetAddress1":
+                return this.streetAddress1;
+
+            case "streetAddress2":
+                return this.streetAddress2;
+
+            case "city":
+                return this.city;
+
+            case "stateSelect":
+                return this.stateSelect;
+
+            case "value42NewMexico":
+                return this.value42NewMexico;
+
+            case "zipCode":
+                return this.zipCode;
+
+            case "countrySelect":
+                return this.countrySelect;
+
+            case "saveAddressButton":
+                return this.saveAddressButton;
+
+            case "addNewAddressButton":
+                return this.addNewAddressButton;
+
 
         }
 

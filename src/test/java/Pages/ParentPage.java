@@ -55,5 +55,9 @@ public class ParentPage {
         select.selectByValue(value);
     }
 
+    public int randomGenerator(int until) {
+        return (int) (Math.random() * until);
+    }
+
 
 }
