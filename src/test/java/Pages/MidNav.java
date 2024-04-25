@@ -42,5 +42,11 @@ public class MidNav extends ParentPage {
     @FindBy(xpath = "//span[@class='minicart-price']/span")
     public List<WebElement> productsPriceInBasket;
 
+    @FindBy(xpath = "//a[@class='product-item-link']")
+    public WebElement productItemText;
+
+    @FindBy(xpath = "//div[@itemprop='sku']")
+    public WebElement skuText;
+
 
 }

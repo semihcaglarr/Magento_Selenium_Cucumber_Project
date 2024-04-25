@@ -38,12 +38,14 @@ public class ParentPage {
     }
 
     public void ActionHover(WebElement element) {
+        scrollToElement(element);
         Action action = driverAction.moveToElement(element).build();
         wait.until(ExpectedConditions.visibilityOf(element));
         action.perform();
     }
 
     public void ActionClick(WebElement element) {
+        scrollToElement(element);
         Action action = driverAction.moveToElement(element).build();
         wait.until(ExpectedConditions.elementToBeClickable(element));
         action.perform();

@@ -33,6 +33,21 @@ public class TopNav extends ParentPage {
     @FindBy(xpath = "//a[@class='action showcart']")
     public WebElement showBasket;
 
+    @FindBy(xpath = "//input[@id='search']")
+    public WebElement searchInput;
+
+    @FindBy(xpath = "//button[@class='action search']")
+    public WebElement searchButton;
+
+    @FindBy(xpath = "//span[text()='Men']")
+    public WebElement menTabMenu;
+
+    @FindBy(xpath = "(//span[text()='Tops'])[2]")
+    public WebElement topsTabMenu;
+
+    @FindBy(xpath = "(//span[text()='Jackets'])[2]")
+    public WebElement jacketsTabMenu;
+
     public WebElement getWebElement(String strElement) {
 
         switch (strElement) {
@@ -47,6 +62,12 @@ public class TopNav extends ParentPage {
 
             case "myAccount":
                 return this.myAccount;
+
+            case "searchInput":
+                return this.searchInput;
+
+            case "searchButton":
+                return this.searchButton;
 
         }
 
