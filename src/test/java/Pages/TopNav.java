@@ -39,8 +39,50 @@ public class TopNav extends ParentPage {
     @FindBy(xpath = "//button[@class='action search']")
     public WebElement searchButton;
 
+    @FindBy(xpath = "//span[text()='Women']")
+    public WebElement womenTabMenu;
+
+    @FindBy(xpath = "//a[@id='ui-id-4']/..//li[contains(@class,'parent')]")
+    public List<WebElement> womenProducts;
+
+    @FindBy(xpath = "//span[text()='Tops']")
+    public WebElement womenTops;
+
+    @FindBy(xpath = "//a[contains(@id,'ui-id-9')]/..//li[contains(@class,'level2')]//span")
+    public List<WebElement> womenTopsProducts;
+
+    @FindBy(xpath = "(//span[text()='Bottoms'])[1]")
+    public WebElement womenBottoms;
+
+    @FindBy(xpath = "//a[contains(@id,'ui-id-10')]/..//li[contains(@class,'level2')]//span")
+    public List<WebElement> womenBottomsProducts;
+
     @FindBy(xpath = "//span[text()='Men']")
     public WebElement menTabMenu;
+
+    @FindBy(xpath = "(//span[text()='Tops'])[2]")
+    public WebElement menTops;
+
+    @FindBy(xpath = "//a[contains(@id,'ui-id-17')]/..//li[contains(@class,'level2')]//span")
+    public List<WebElement> menTopsProducts;
+
+    @FindBy(xpath = "(//span[text()='Bottoms'])[2]")
+    public WebElement menBottoms;
+
+    @FindBy(xpath = "//a[contains(@id,'ui-id-18')]/..//li[contains(@class,'level2')]//span")
+    public List<WebElement> menBottomsProducts;
+
+    @FindBy(xpath = "//span[text()='Gear']")
+    public WebElement gearTabMenu;
+
+    @FindBy(xpath = "//a[contains(@id,'ui-id-6')]/..//li[contains(@class,'level')]//span")
+    public List<WebElement> gearProducts;
+
+    @FindBy(xpath = "//span[text()='Training']")
+    public WebElement trainingTabMenu;
+
+    @FindBy(xpath = "//a[contains(@id,'ui-id-7')]/..//li[contains(@class,'level')]//span")
+    public List<WebElement> trainingProducts;
 
     @FindBy(xpath = "(//span[text()='Tops'])[2]")
     public WebElement topsTabMenu;
@@ -57,7 +99,7 @@ public class TopNav extends ParentPage {
             case "signIn":
                 return this.signIn;
 
-            case "actionSwitch":
+            case "actionSwitch"://span[text()='Women']/../..//li[contains(@class,'level1')]//span
                 return this.actionSwitch;
 
             case "myAccount":

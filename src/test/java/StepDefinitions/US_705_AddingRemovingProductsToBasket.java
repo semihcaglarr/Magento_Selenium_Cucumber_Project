@@ -114,7 +114,7 @@ public class US_705_AddingRemovingProductsToBasket {
         }
 
         // Hooks after kapalı onu açarsın
-        // burada da sepete git bölümü var view and edit cart oaraya tıklatıp doğrulama işlemlerini Assert daha kolay yapabilirsin
+        // burada da sepete git bölümü var view and edit cart oraya tıklatıp doğrulama işlemlerini Assert daha kolay yapabilirsin
 
         tn.wait.until(ExpectedConditions.elementToBeClickable(tn.showBasket));
         tn.myClick(tn.showBasket);
