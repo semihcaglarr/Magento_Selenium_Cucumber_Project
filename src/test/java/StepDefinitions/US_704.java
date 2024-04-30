@@ -7,7 +7,7 @@ import org.testng.Assert;
 
 import java.util.*;
 
-public class US_704_TabMenu {
+public class US_704 {
     TopNav tn = new TopNav();
 
     @Given("Accuracy check of what appears in Tab Menu")

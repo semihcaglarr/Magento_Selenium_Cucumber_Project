@@ -2,8 +2,7 @@ package Pages;
 
 import Utilities.GWD;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.*;
 
 import java.util.List;
 
@@ -47,6 +46,45 @@ public class MidNav extends ParentPage {
 
     @FindBy(xpath = "//div[@itemprop='sku']")
     public WebElement skuText;
+
+    @FindBy(xpath = "(//button[@class='action primary checkout'])[2]")
+    public WebElement proceedToCheckOut;
+
+    @FindBy(xpath = "//div[@class='new-address-popup']//span")
+    public WebElement addNewAddress;
+
+    @FindBy(xpath = "//input[@class='radio']")
+    public List<WebElement> shippingMethodsRadio;
+
+    @FindBy(xpath = "//button[@class='button action continue primary']")
+    public WebElement shippingNextButton;
+
+    @FindBy(xpath = "(//div[@class='shipping-address-item selected-item']/br)[1]")
+    public WebElement shippingAddressText;
+
+    @FindBy(xpath = "((//div[@class='shipping-information-content'])[1]/br)[1]")
+    public WebElement paymentAddressText;
+
+    @FindBy(xpath = "(//span[text()='Place Order']/..")
+    //div[@class='actions-toolbar'])[4]//button
+    public WebElement placeHolderButton;
+
+    @FindBy(xpath = "//h1[@class='page-title']/span")
+    public WebElement successOrderMessage;
+
+    @FindBy(xpath = "//a[@class='order-number']/strong")
+    public WebElement orderNumberText;
+
+
+    public WebElement getWebElement(String strElement) {
+
+        switch (strElement) {
+            case "proceedToCheckOut":
+                return this.proceedToCheckOut;
+        }
+
+        return null;
+    }
 
 
 }

@@ -90,6 +90,12 @@ public class TopNav extends ParentPage {
     @FindBy(xpath = "(//span[text()='Jackets'])[2]")
     public WebElement jacketsTabMenu;
 
+    @FindBy(xpath = "//a[text()='shopping cart']")
+    public WebElement shoppingCartGreen;
+
+    @FindBy(xpath = "//a[@class='logo']")
+    public WebElement lumaLogo;
+
     public WebElement getWebElement(String strElement) {
 
         switch (strElement) {
@@ -110,6 +116,9 @@ public class TopNav extends ParentPage {
 
             case "searchButton":
                 return this.searchButton;
+
+            case "shoppingCartGreen":
+                return this.shoppingCartGreen;
 
         }
 

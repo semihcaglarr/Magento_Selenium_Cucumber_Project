@@ -16,9 +16,9 @@ Feature: Add Product to Basket Functionality
     Then Welcome message should be displayed
 
 
-    Scenario: Registered User Randomly Adds or Removes Products to The Basket
+  Scenario: Registered User Randomly Adds or Removes Products to The Basket
 
-      Given Add a Randomly Selected Product to The Basket
+    Given Add a Randomly Selected Product to The Basket
 
 
 

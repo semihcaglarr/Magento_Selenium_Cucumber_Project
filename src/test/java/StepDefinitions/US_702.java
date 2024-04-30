@@ -4,7 +4,7 @@ import Pages.DialogContent;
 import Pages.TopNav;
 import io.cucumber.java.en.And;
 
-public class US_702_Login {
+public class US_702 {
     DialogContent dc = new DialogContent();
     TopNav tn = new TopNav();
 

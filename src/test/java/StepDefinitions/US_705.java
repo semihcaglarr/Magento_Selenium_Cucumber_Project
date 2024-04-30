@@ -5,7 +5,7 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-public class US_705_AddingRemovingProductsToBasket {
+public class US_705 {
     TopNav tn = new TopNav();
     MidNav mn = new MidNav();
     LeftNav ln = new LeftNav();

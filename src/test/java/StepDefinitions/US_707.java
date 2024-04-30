@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class US_707_Search_Functionality {
+public class US_707 {
     TopNav tn = new TopNav();
     MidNav mn = new MidNav();
 

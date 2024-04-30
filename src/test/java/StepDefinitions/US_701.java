@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class US_701_Register {
+public class US_701 {
     DialogContent dc = new DialogContent();
     TopNav tn = new TopNav();
 
