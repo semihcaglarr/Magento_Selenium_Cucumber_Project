@@ -1,18 +1,26 @@
 package StepDefinitions;
 
 import Pages.*;
+import Utilities.GWD;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.util.*;
 import java.util.List;
 
 public class US_706 {
+    public String productSKU;
+    public String homePageID;
+
     TopNav tn = new TopNav();
     MidNav mn = new MidNav();
     LeftNav ln = new LeftNav();
+
 
     @Given("Add a Randomly Selected Product to The Shopping Cart")
     public void addARandomlySelectedProductToTheShoppingCart() {
@@ -26,6 +34,10 @@ public class US_706 {
             mn.myClick(mn.productNameList.get(random16));
 
             //String strProductPriceNew = mn.productPrice.getText();
+            ln.wait.until(ExpectedConditions.visibilityOf(mn.skuText));
+            String part = mn.skuText.getText();
+            String[] parts = part.split("-");
+            productSKU = parts[0];
 
             int random1 = mn.randomGenerator(mn.productSizeList.size());
             mn.myClick(mn.productSizeList.get(random1));
@@ -41,6 +53,10 @@ public class US_706 {
             mn.myClick(mn.productNameList.get(random3));
 
             //String strProductPriceWomen = mn.productPrice.getText();
+            ln.wait.until(ExpectedConditions.visibilityOf(mn.skuText));
+            String part = mn.skuText.getText();
+            String[] parts = part.split("-");
+            productSKU = parts[0];
 
             int random4 = mn.randomGenerator(mn.productSizeList.size());
             mn.myClick(mn.productSizeList.get(random4));
@@ -56,6 +72,10 @@ public class US_706 {
             mn.myClick(mn.productNameList.get(random6));
 
             //String strProductPriceMan = mn.productPrice.getText();
+            ln.wait.until(ExpectedConditions.visibilityOf(mn.skuText));
+            String part = mn.skuText.getText();
+            String[] parts = part.split("-");
+            productSKU = parts[0];
 
             int random7 = mn.randomGenerator(mn.productSizeList.size());
             mn.myClick(mn.productSizeList.get(random7));
@@ -71,6 +91,10 @@ public class US_706 {
             mn.myClick(mn.productNameList.get(random9));
 
             //String strProductPriceGear = mn.productPrice.getText();
+            ln.wait.until(ExpectedConditions.visibilityOf(mn.skuText));
+            String part = mn.skuText.getText();
+            String[] parts = part.split("-");
+            productSKU = parts[0];
 
             mn.myClick(mn.addToCartButton);
 
@@ -84,6 +108,10 @@ public class US_706 {
             mn.myClick(mn.productNameList.get(random10));
 
             //String strProductPriceTraining = mn.productPrice.getText();
+            ln.wait.until(ExpectedConditions.visibilityOf(mn.skuText));
+            String part = mn.skuText.getText();
+            String[] parts = part.split("-");
+            productSKU = parts[0];
 
             int random11 = mn.randomGenerator(mn.productSizeList.size());
             mn.myClick(mn.productSizeList.get(random11));
@@ -104,6 +132,10 @@ public class US_706 {
             mn.myClick(mn.productNameList.get(random13));
 
             //String strProductPriceGear = mn.productPrice.getText();
+            ln.wait.until(ExpectedConditions.visibilityOf(mn.skuText));
+            String part = mn.skuText.getText();
+            String[] parts = part.split("-");
+            productSKU = parts[0];
 
             int random14 = mn.randomGenerator(mn.productSizeList.size());
             mn.myClick(mn.productSizeList.get(random14));
@@ -141,13 +173,82 @@ public class US_706 {
 //        String paymentAddress = mn.paymentAddressText.getText();
 
 //        Assert.assertEquals(shippingAddress,paymentAddress,"Shipping and Payment addresses do not match");
-        mn.wait.until(ExpectedConditions.elementToBeClickable(mn.placeHolderButton));
-        mn.ActionClick(mn.placeHolderButton);
+        mn.JavaScriptClick(mn.placeHolderButton);
 
     }
 
-    @Then("Successful order message should be displayed")
+    @And("Successful order message should be displayed")
     public void successfulOrderMessageShouldBeDisplayed() {
         mn.verifyContainsText(mn.successOrderMessage, "purchase");
+        ln.wait.until(ExpectedConditions.urlContains("success"));
+        homePageID = GWD.getDriver().getWindowHandle();
+    }
+
+
+    @And("Necessary checks that the order has been successfully created")
+    public void necessaryChecksThatTheOrderHasBeenSuccessfullyCreated() {
+        ln.Wait(3);
+
+        try {
+            Robot robot = new Robot();
+
+            robot.keyPress(KeyEvent.VK_ESCAPE);
+            ln.Wait(3);
+            robot.keyRelease(KeyEvent.VK_ESCAPE);
+
+            Set<String> windowsIDler = GWD.getDriver().getWindowHandles();
+            Iterator<String> indicator = windowsIDler.iterator();
+            String firstPage = indicator.next().toString();
+            System.out.println("firstPage = " + firstPage);
+            String secondPage = indicator.next().toString();
+            System.out.println("secondPage = " + secondPage);
+
+            GWD.getDriver().switchTo().window(secondPage);
+
+            ln.wait.until(ExpectedConditions.visibilityOf(mn.orderSKU));
+            System.out.println("orderSKU : " + mn.orderSKU.getText());
+            System.out.println("productSKU : " + productSKU);
+            String text = mn.orderSKU.getText();
+            String[] parts = text.split("-");
+            String part = parts[0];
+            System.out.println("part : "+part);
+           Assert.assertEquals(productSKU, part, "The SKU's don't match");
+
+            for (String id : windowsIDler) {
+                if (!(id.equals(firstPage))) {
+                    GWD.getDriver().switchTo().window(id);
+                    GWD.getDriver().close();
+                }
+            }
+
+            GWD.getDriver().switchTo().window(firstPage);
+
+
+
+
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @And("Checking that the Product Basket is Empty")
+    public void checkingThatTheProductBasketIsEmpty() {
+        ln.JavaScriptClick(tn.showBasket);
+        ln.wait.until(ExpectedConditions.textToBePresentInElement(tn.subtitleEmptyText,"You have no items in your shopping cart."));
+        ln.verifyContainsText(tn.subtitleEmptyText, "You have no items");
+    }
+
+
+    @And("Checking Order Status")
+    public void checkingOrderStatus() {
+        ln.wait.until(ExpectedConditions.urlContains("order"));
+        Assert.assertTrue(mn.orderStatus.getText().trim().toLowerCase().contains("pending"));
+    }
+
+    @Then("Successful Sign Out Control")
+    public void successfulSignOutControl() {
+        ln.verifyContainsText(tn.signedOutText,"signed");
     }
 }
+

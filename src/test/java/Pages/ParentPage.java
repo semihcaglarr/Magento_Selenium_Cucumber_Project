@@ -20,6 +20,14 @@ public class ParentPage {
         element.click();
     }
 
+    public void JavaScriptClick(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        scrollToElement(element);
+        JavascriptExecutor jse = (JavascriptExecutor) GWD.getDriver();
+        jse.executeScript("arguments[0].click();", element);
+    }
+
+
     public void mySendKeys(WebElement element, String text) {
         wait.until(ExpectedConditions.visibilityOf(element));
         scrollToElement(element);
@@ -59,6 +67,14 @@ public class ParentPage {
 
     public int randomGenerator(int until) {
         return (int) (Math.random() * until);
+    }
+
+    public void Wait(int limit) {
+        try {
+            Thread.sleep(limit * 3000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

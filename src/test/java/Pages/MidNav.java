@@ -65,7 +65,8 @@ public class MidNav extends ParentPage {
     @FindBy(xpath = "((//div[@class='shipping-information-content'])[1]/br)[1]")
     public WebElement paymentAddressText;
 
-    @FindBy(xpath = "(//span[text()='Place Order']/..")
+    @FindBy(xpath = "//button[@class='action primary checkout']")
+    // (//span[text()='Place Order']/..
     //div[@class='actions-toolbar'])[4]//button
     public WebElement placeHolderButton;
 
@@ -73,14 +74,28 @@ public class MidNav extends ParentPage {
     public WebElement successOrderMessage;
 
     @FindBy(xpath = "//a[@class='order-number']/strong")
-    public WebElement orderNumberText;
+    public WebElement orderNumber;
 
+    @FindBy(xpath = "//a[@class='action print']")
+    public WebElement printReceipt;
+
+    @FindBy(xpath = "//td[@data-th='SKU']")
+    public WebElement orderSKU;
+
+    @FindBy(xpath = "//span[@class='order-status']")
+    public WebElement orderStatus;
 
     public WebElement getWebElement(String strElement) {
 
         switch (strElement) {
             case "proceedToCheckOut":
                 return this.proceedToCheckOut;
+
+            case "printReceipt":
+                return this.printReceipt;
+
+            case "orderNumber":
+                return this.orderNumber;
         }
 
         return null;

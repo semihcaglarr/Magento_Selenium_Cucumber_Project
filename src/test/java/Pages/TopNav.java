@@ -96,6 +96,15 @@ public class TopNav extends ParentPage {
     @FindBy(xpath = "//a[@class='logo']")
     public WebElement lumaLogo;
 
+    @FindBy(xpath = "//strong[@class='subtitle empty']")
+    public WebElement subtitleEmptyText;
+
+    @FindBy(xpath = "(//a[contains(text(),'Sign Out')])[1]")
+    public WebElement signOut;
+
+    @FindBy(xpath = "//*[contains(text(),'signed')]")
+    public WebElement signedOutText;
+
     public WebElement getWebElement(String strElement) {
 
         switch (strElement) {
@@ -119,6 +128,9 @@ public class TopNav extends ParentPage {
 
             case "shoppingCartGreen":
                 return this.shoppingCartGreen;
+
+            case "signOut":
+                return this.signOut;
 
         }
 
