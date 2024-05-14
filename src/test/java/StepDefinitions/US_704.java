@@ -2,7 +2,7 @@ package StepDefinitions;
 
 import Pages.TopNav;
 import io.cucumber.java.en.*;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 
 import java.util.*;

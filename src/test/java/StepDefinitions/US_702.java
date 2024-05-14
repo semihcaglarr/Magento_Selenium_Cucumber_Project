@@ -1,8 +1,7 @@
 package StepDefinitions;
 
-import Pages.DialogContent;
-import Pages.TopNav;
-import io.cucumber.java.en.And;
+import Pages.*;
+import io.cucumber.java.en.*;
 
 public class US_702 {
     DialogContent dc = new DialogContent();

@@ -1,10 +1,9 @@
 package StepDefinitions;
 
-import Pages.DialogContent;
-import Pages.LeftNav;
+import Pages.*;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.List;
 
