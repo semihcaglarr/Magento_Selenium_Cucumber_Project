@@ -25,7 +25,7 @@ Feature: Address Addition Functionality
       | addressBook |
 
     And Click on the Element in Dialog
-    |addNewAddressButton|
+      | addNewAddressButton |
 
     When User Sending the Keys in Dialog
       | phoneNumber    | <Telephone> |
